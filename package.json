@@ -1,0 +1,19 @@
+{
+  "name": "ais-utils",
+  "version": "1.0.0",
+  "description": "A collection of JS utility functions used in AirIntServices projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AirIntServices/ais-utils.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AirIntServices/ais-utils/issues"
+  },
+  "homepage": "https://github.com/AirIntServices/ais-utils#readme"
+}
