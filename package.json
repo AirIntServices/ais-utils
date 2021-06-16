@@ -4,7 +4,8 @@
   "description": "A collection of JS utility functions used in AirIntServices projects",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --cache ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/AirIntServices/ais-utils/issues"
   },
-  "homepage": "https://github.com/AirIntServices/ais-utils#readme"
+  "homepage": "https://github.com/AirIntServices/ais-utils#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1"
+  }
 }
