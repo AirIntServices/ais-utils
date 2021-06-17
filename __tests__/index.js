@@ -1,6 +1,6 @@
 const { groupBy, oldGroupBy } = require('../index');
 
-describe('Testing idempotence of groupBy and fastGroupBy', () => {
+describe('Testing idempotence of groupBy and oldGroupBy', () => {
   test('behaves the same when passing empty array', () => {
     const arr = [];
     expect(groupBy(arr)).toEqual(oldGroupBy(arr));
