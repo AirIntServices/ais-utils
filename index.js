@@ -38,7 +38,18 @@ const groupBy = (items, field) => {
   return output;
 };
 
+/**
+ * Takes an object and returns a new object with the same keys, but where all values are the result of the given function
+ * @param {Object} obj the source object
+ * @param {function} func the function that will be called for all entries of the source object. First param is the value, second optional param is the key.
+ */
+const objMap = (obj, func) =>
+  Object.entries(obj).reduce((output, [key, value]) => {
+    return { ...output, [key]: func(value, key) };
+  }, {});
+
 module.exports = {
   groupBy,
   oldGroupBy,
+  objMap,
 };
