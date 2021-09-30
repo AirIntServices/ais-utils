@@ -48,8 +48,22 @@ const objMap = (obj, func) =>
     return { ...output, [key]: func(value, key) };
   }, {});
 
+/**
+ * Takes an array and turn it into an object where keys are the values of the given field, and values are the items
+ * @param {array} items array of items
+ * @param {string} field field on each item of the array that will be used for key
+ */
+const toObject = (items, field) => {
+  const output = {};
+  items.forEach((item) => {
+    output[item[field]] = item;
+  });
+  return output;
+};
+
 module.exports = {
   groupBy,
   oldGroupBy,
   objMap,
+  toObject,
 };
