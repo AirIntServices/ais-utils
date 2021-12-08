@@ -27,13 +27,17 @@ const oldGroupBy = (items, field) =>
  * Takes an array and groups its values into an object where keys are the distinct values of the given field, and values are arrays containing the items matching these values
  * The reduce implementation is very much slower, so we had to switch back to the good old loop approach for this one
  * @param {array} items array of items that should be grouped
- * @param {string} field field on each item of the array that will be used for grouping
+ * @param {string or function} field field on each item of the array that will be used for grouping or a function that returns the key value based on item
  */
 const groupBy = (items, field) => {
   const output = {};
   items.forEach((item) => {
-    if (output[item[field]] === undefined) output[item[field]] = [];
-    output[item[field]].push(item);
+    const key =
+      Object.prototype.toString.call(field) === '[object Function]'
+        ? field(item)
+        : item[field];
+    if (output[key] === undefined) output[key] = [];
+    output[key].push(item);
   });
   return output;
 };
@@ -51,12 +55,16 @@ const objMap = (obj, func) =>
 /**
  * Takes an array and turn it into an object where keys are the values of the given field, and values are the items
  * @param {array} items array of items
- * @param {string} field field on each item of the array that will be used for key
+ * @param {string or function} field field on each item of the array that will be used for key or a function that returns the key value based on item
  */
 const toObject = (items, field) => {
   const output = {};
   items.forEach((item) => {
-    output[item[field]] = item;
+    const key =
+      Object.prototype.toString.call(field) === '[object Function]'
+        ? field(item)
+        : item[field];
+    output[key] = item;
   });
   return output;
 };
