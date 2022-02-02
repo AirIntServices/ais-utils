@@ -118,4 +118,9 @@ describe('sortByFields', () => {
   it('should ignore nonexisting parameters', () => {
     expect(sortByFields(array, 'c', 'line', 'page')).toMatchSnapshot();
   });
+  it('should ignore null direction', () => {
+    expect(
+      sortByFields(array, ['page', null], ['line', 'ASC']),
+    ).toMatchSnapshot();
+  });
 });

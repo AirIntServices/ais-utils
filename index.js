@@ -125,6 +125,9 @@ const sortByFields = (array, ...rest) => {
           if (valueA < valueB) return 1;
           break;
 
+        case null:
+          break;
+
         // ASC by default
         default:
           if (valueA < valueB) return -1;

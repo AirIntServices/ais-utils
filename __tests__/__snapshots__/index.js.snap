@@ -30,6 +30,36 @@ Array [
 ]
 `;
 
+exports[`sortByFields should ignore null direction 1`] = `
+Array [
+  Object {
+    "line": 1,
+    "page": 1,
+    "test": "a",
+  },
+  Object {
+    "line": 2,
+    "page": 1,
+    "test": "A",
+  },
+  Object {
+    "line": 3,
+    "page": 2,
+    "test": "B",
+  },
+  Object {
+    "line": 4,
+    "page": 1,
+    "test": 2,
+  },
+  Object {
+    "line": 4,
+    "page": 1,
+    "test": 1,
+  },
+]
+`;
+
 exports[`sortByFields should return sort by page ASC 1`] = `
 Array [
   Object {
