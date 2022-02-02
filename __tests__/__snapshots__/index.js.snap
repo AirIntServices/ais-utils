@@ -3,11 +3,6 @@
 exports[`sortByFields should ignore nonexisting parameters 1`] = `
 Array [
   Object {
-    "line": 3,
-    "page": 2,
-    "test": "B",
-  },
-  Object {
     "line": 1,
     "page": 1,
     "test": "a",
@@ -16,6 +11,11 @@ Array [
     "line": 2,
     "page": 1,
     "test": "A",
+  },
+  Object {
+    "line": 3,
+    "page": 2,
+    "test": "B",
   },
   Object {
     "line": 4,
@@ -300,17 +300,72 @@ Array [
 ]
 `;
 
-exports[`sortByFields should return sort by test DESC AND case sensitive 1`] = `
+exports[`sortByFields should return sort by test ASC AND case sensitive 1`] = `
 Array [
+  Object {
+    "line": 2,
+    "page": 1,
+    "test": "A",
+  },
+  Object {
+    "line": 3,
+    "page": 2,
+    "test": "B",
+  },
   Object {
     "line": 1,
     "page": 1,
     "test": "a",
   },
   Object {
+    "line": 4,
+    "page": 1,
+    "test": 1,
+  },
+  Object {
+    "line": 4,
+    "page": 1,
+    "test": 2,
+  },
+]
+`;
+
+exports[`sortByFields should return sort by test ASC AND case sensitive 2`] = `
+Array [
+  Object {
+    "line": 2,
+    "page": 1,
+    "test": "A",
+  },
+  Object {
     "line": 3,
     "page": 2,
     "test": "B",
+  },
+  Object {
+    "line": 1,
+    "page": 1,
+    "test": "a",
+  },
+  Object {
+    "line": 4,
+    "page": 1,
+    "test": 1,
+  },
+  Object {
+    "line": 4,
+    "page": 1,
+    "test": 2,
+  },
+]
+`;
+
+exports[`sortByFields should return sort by test ASC AND not case sensitive 1`] = `
+Array [
+  Object {
+    "line": 1,
+    "page": 1,
+    "test": "a",
   },
   Object {
     "line": 2,
@@ -321,6 +376,11 @@ Array [
     "line": 4,
     "page": 1,
     "test": 2,
+  },
+  Object {
+    "line": 3,
+    "page": 2,
+    "test": "B",
   },
   Object {
     "line": 4,
@@ -330,13 +390,8 @@ Array [
 ]
 `;
 
-exports[`sortByFields should return sort by test DESC AND not case sensitive 1`] = `
+exports[`sortByFields should return sort by test ASC AND not case sensitive 2`] = `
 Array [
-  Object {
-    "line": 3,
-    "page": 2,
-    "test": "B",
-  },
   Object {
     "line": 1,
     "page": 1,
@@ -351,6 +406,11 @@ Array [
     "line": 4,
     "page": 1,
     "test": 2,
+  },
+  Object {
+    "line": 3,
+    "page": 2,
+    "test": "B",
   },
   Object {
     "line": 4,

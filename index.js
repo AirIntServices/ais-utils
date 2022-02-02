@@ -108,13 +108,16 @@ const sortByFields = (array, ...rest) => {
     typeof rest[rest.length - 1] === 'boolean' ? !rest[rest.length - 1] : false;
   const keysLength = rest.length - (isNotCaseSensitive ? 1 : 0);
 
-  return array.sort((objA, objB) => {
+  return [...array].sort((objA, objB) => {
     for (let i = 0; i < keysLength; i += 1) {
-      const [key, direction] = rest[i];
+      const [key, direction] = Array.isArray(rest[i]) ? rest[i] : [rest[i]];
       let valueA = resolvePath(objA, key);
       let valueB = resolvePath(objB, key);
 
-      if (isNotCaseSensitive) {
+      if (
+        isNotCaseSensitive &&
+        (typeof valueA === 'string' || typeof valueA === 'string')
+      ) {
         valueA = lowerString(valueA);
         valueB = lowerString(valueB);
       }

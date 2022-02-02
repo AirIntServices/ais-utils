@@ -108,11 +108,13 @@ describe('sortByFields', () => {
     ).toMatchSnapshot();
   });
 
-  it('should return sort by test DESC AND case sensitive', () => {
-    expect(sortByFields(array, ['test', 'DESC'])).toMatchSnapshot();
+  it('should return sort by test ASC AND case sensitive', () => {
+    expect(sortByFields(array, ['test', 'ASC'])).toMatchSnapshot();
+    expect(sortByFields(array, 'test')).toMatchSnapshot();
   });
-  it('should return sort by test DESC AND not case sensitive', () => {
-    expect(sortByFields(array, ['test', 'DESC'], false)).toMatchSnapshot();
+  it('should return sort by test ASC AND not case sensitive', () => {
+    expect(sortByFields(array, ['test', 'ASC'], false)).toMatchSnapshot();
+    expect(sortByFields(array, 'test', false)).toMatchSnapshot();
   });
 
   it('should ignore nonexisting parameters', () => {
