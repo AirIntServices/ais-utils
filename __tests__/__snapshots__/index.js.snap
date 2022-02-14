@@ -90,67 +90,7 @@ Array [
 ]
 `;
 
-exports[`sortByFields should return sort by page ASC 2`] = `
-Array [
-  Object {
-    "line": 1,
-    "page": 1,
-    "test": "a",
-  },
-  Object {
-    "line": 2,
-    "page": 1,
-    "test": "A",
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 2,
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 1,
-  },
-  Object {
-    "line": 3,
-    "page": 2,
-    "test": "B",
-  },
-]
-`;
-
 exports[`sortByFields should return sort by page ASC AND line ASC 1`] = `
-Array [
-  Object {
-    "line": 1,
-    "page": 1,
-    "test": "a",
-  },
-  Object {
-    "line": 2,
-    "page": 1,
-    "test": "A",
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 2,
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 1,
-  },
-  Object {
-    "line": 3,
-    "page": 2,
-    "test": "B",
-  },
-]
-`;
-
-exports[`sortByFields should return sort by page ASC AND line ASC 2`] = `
 Array [
   Object {
     "line": 1,
@@ -330,67 +270,7 @@ Array [
 ]
 `;
 
-exports[`sortByFields should return sort by test ASC AND case sensitive 2`] = `
-Array [
-  Object {
-    "line": 2,
-    "page": 1,
-    "test": "A",
-  },
-  Object {
-    "line": 3,
-    "page": 2,
-    "test": "B",
-  },
-  Object {
-    "line": 1,
-    "page": 1,
-    "test": "a",
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 1,
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 2,
-  },
-]
-`;
-
 exports[`sortByFields should return sort by test ASC AND not case sensitive 1`] = `
-Array [
-  Object {
-    "line": 1,
-    "page": 1,
-    "test": "a",
-  },
-  Object {
-    "line": 2,
-    "page": 1,
-    "test": "A",
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 2,
-  },
-  Object {
-    "line": 3,
-    "page": 2,
-    "test": "B",
-  },
-  Object {
-    "line": 4,
-    "page": 1,
-    "test": 1,
-  },
-]
-`;
-
-exports[`sortByFields should return sort by test ASC AND not case sensitive 2`] = `
 Array [
   Object {
     "line": 1,

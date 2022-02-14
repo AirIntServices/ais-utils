@@ -78,14 +78,14 @@ describe('sortByFields', () => {
   ];
 
   it('should return sort by page ASC', () => {
-    expect(sortByFields(array, ['page', 'ASC'])).toMatchSnapshot();
-    expect(sortByFields(array, 'page')).toMatchSnapshot();
+    const result = sortByFields(array, ['page', 'ASC']);
+    expect(result).toMatchSnapshot();
+    expect(sortByFields(array, 'page')).toEqual(result);
   });
   it('should return sort by page ASC AND line ASC', () => {
-    expect(
-      sortByFields(array, ['page', 'ASC'], ['line', 'ASC']),
-    ).toMatchSnapshot();
-    expect(sortByFields(array, 'page', 'line')).toMatchSnapshot();
+    const result = sortByFields(array, ['page', 'ASC'], ['line', 'ASC']);
+    expect(result).toMatchSnapshot();
+    expect(sortByFields(array, 'page', 'line')).toEqual(result);
   });
 
   it('should return sort by page DESC', () => {
@@ -109,12 +109,14 @@ describe('sortByFields', () => {
   });
 
   it('should return sort by test ASC AND case sensitive', () => {
-    expect(sortByFields(array, ['test', 'ASC'])).toMatchSnapshot();
-    expect(sortByFields(array, 'test')).toMatchSnapshot();
+    const result = sortByFields(array, ['test', 'ASC']);
+    expect(result).toMatchSnapshot();
+    expect(sortByFields(array, 'test')).toEqual(result);
   });
   it('should return sort by test ASC AND not case sensitive', () => {
-    expect(sortByFields(array, ['test', 'ASC'], false)).toMatchSnapshot();
-    expect(sortByFields(array, 'test', false)).toMatchSnapshot();
+    const result = sortByFields(array, ['test', 'ASC'], false);
+    expect(result).toMatchSnapshot();
+    expect(sortByFields(array, 'test', false)).toEqual(result);
   });
 
   it('should ignore nonexisting parameters', () => {
