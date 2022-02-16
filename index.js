@@ -69,9 +69,85 @@ const toObject = (items, field) => {
   return output;
 };
 
+/**
+ * Access a value in an object given it's path
+ * resolvePath({valueA: {valueB: 'c'}},'valueA.valueB') return 'c'
+ * @param {Object} object source object
+ * @param {string} path path to access the value
+ */
+const resolvePath = (object, path) =>
+  path
+    .split('.')
+    .reduce((_object, key) => (_object ? _object[key] : undefined), object);
+
+/**
+ * Return lowercased version of a string
+ * Empty string if can't be converted to lowercase
+ * @param {string} value string to lower case
+ */
+const lowerString = (value) => {
+  try {
+    return value.toLowerCase();
+  } catch (e) {
+    return '';
+  }
+};
+
+/**
+ * Sort an array of objects
+ * sortByFields(records, ['page', 'ASC'], ['size', 'DESC']) sort by page (ascending), size (descending) with case sensitive
+ * sortByFields(records, ['page', 'ASC'], false) sort by page (ascending) with case in-sensitive
+ * sortByFields(records, 'page', 'size') sort by page and size (ascending) with case sensitive
+ * sortByFields(records, 'page', 'size', false) sort by page and size (ascending) with case in-sensitive
+ * sortByFields(records, 'page.id', 'size') sort by page --> id and size (ascending) with case sensitive
+ * @param {array} array array of objects to sort
+ * @param {string or array} 'property name' or ['property name', 'sort direction'] direction enable are ASC and DESC
+ * @param {bool} caseSensitive case sensitive: true by default, last param
+ */
+const sortByFields = (array, ...rest) => {
+  const isNotCaseSensitive =
+    typeof rest[rest.length - 1] === 'boolean' ? !rest[rest.length - 1] : false;
+  const keysLength = rest.length - (isNotCaseSensitive ? 1 : 0);
+
+  return [...array].sort((objA, objB) => {
+    for (let i = 0; i < keysLength; i += 1) {
+      const [key, direction] = Array.isArray(rest[i]) ? rest[i] : [rest[i]];
+      let valueA = resolvePath(objA, key);
+      let valueB = resolvePath(objB, key);
+
+      if (
+        isNotCaseSensitive &&
+        (typeof valueA === 'string' || typeof valueA === 'string')
+      ) {
+        valueA = lowerString(valueA);
+        valueB = lowerString(valueB);
+      }
+
+      switch (direction) {
+        case 'DESC':
+          if (valueA > valueB) return -1;
+          if (valueA < valueB) return 1;
+          break;
+
+        case null:
+          break;
+
+        // ASC by default
+        default:
+          if (valueA < valueB) return -1;
+          if (valueA > valueB) return 1;
+          break;
+      }
+    }
+    return 0;
+  });
+};
+
 module.exports = {
   groupBy,
   oldGroupBy,
   objMap,
   toObject,
+  resolvePath,
+  sortByFields,
 };
