@@ -143,6 +143,12 @@ const sortByFields = (array, ...rest) => {
   });
 };
 
+/**
+ * Suspend execution
+ * @param {number} ms time in ms
+ */
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 module.exports = {
   groupBy,
   oldGroupBy,
@@ -150,4 +156,5 @@ module.exports = {
   toObject,
   resolvePath,
   sortByFields,
+  sleep,
 };

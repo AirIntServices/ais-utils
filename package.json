@@ -1,6 +1,6 @@
 {
   "name": "ais-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A collection of JS utility functions used in AirIntServices projects",
   "main": "index.js",
   "scripts": {
